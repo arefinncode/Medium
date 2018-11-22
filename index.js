@@ -3,6 +3,6 @@ import { AppRegistry } from 'react-native';
  //import Bookcase from './app/components/Bookcase';
 
 import App from './app/App';
-import Router from './app/Router';
+//import Router from './app/Router';
 
-AppRegistry.registerComponent('AwesomeProject', () => Router);
+AppRegistry.registerComponent('AwesomeProject', () => App);

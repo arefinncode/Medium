@@ -1,20 +1,17 @@
-// import React, { Component } from 'react';
-import { Dimensions, Platform } from 'react-native';
+import React, { Component } from 'react';
+import { Dimensions, Platform,Button, Text, View  } from 'react-native';
 
 import { Icon2} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Icon2 from 'react-native-vector-icons/FontAwesome';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import React from 'react';
-import { Button, Text, View } from 'react-native';
+import Icon3 from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+// import React from 'react';
+
 // import { Ionicons } from '@expo/vector-icons';
 import {
     createStackNavigator,
-    createBottomTabNavigator,
     createAppContainer,
-    createStackNavigator,
-    createBottomTabNavigator,
-    createAppContainer } from 'react-navigation';
+    createBottomTabNavigator} from 'react-navigation';
 // import Bookcase from './screens/Bookcase';
 // import Explore from './screens/Explore';
 // import AddBook from './screens/AddBook';
