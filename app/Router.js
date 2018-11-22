@@ -1,8 +1,20 @@
 // import React, { Component } from 'react';
 import { Dimensions, Platform } from 'react-native';
 
-import { Icon } from 'react-native-elements';
+import { Icon2} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Icon2 from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import React from 'react';
+import { Button, Text, View } from 'react-native';
+// import { Ionicons } from '@expo/vector-icons';
+import {
+    createStackNavigator,
+    createBottomTabNavigator,
+    createAppContainer,
+    createStackNavigator,
+    createBottomTabNavigator,
+    createAppContainer } from 'react-navigation';
 // import Bookcase from './screens/Bookcase';
 // import Explore from './screens/Explore';
 // import AddBook from './screens/AddBook';
@@ -11,10 +23,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 // import EditBook from './screens/EditBook';
 
 let screen = Dimensions.get('window');
-import Icon2 from 'react-native-vector-icons/FontAwesome';
+
 const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 const myButton = (
     <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
         Login with Facebook
@@ -120,16 +132,7 @@ export default createAppContainer(AppNavigator);
 
 */
 
-import React from 'react';
-import { Button, Text, View } from 'react-native';
-// import { Ionicons } from '@expo/vector-icons';
-import {
-    createStackNavigator,
-    createBottomTabNavigator,
-    createAppContainer,
-    createStackNavigator,
-    createBottomTabNavigator,
-    createAppContainer } from 'react-navigation';
+
 
 class HomeScreen extends React.Component {
     render() {
