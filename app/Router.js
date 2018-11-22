@@ -1,17 +1,37 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 import { Dimensions, Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements';
 
-import Bookcase from './screens/Bookcase';
-import Explore from './screens/Explore';
-import AddBook from './screens/AddBook';
-import Lists from './screens/Lists';
-import Profile from './screens/Profile';
-import EditBook from './screens/EditBook';
+import { Icon } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
+// import Bookcase from './screens/Bookcase';
+// import Explore from './screens/Explore';
+// import AddBook from './screens/AddBook';
+// import Lists from './screens/Lists';
+// import Profile from './screens/Profile';
+// import EditBook from './screens/EditBook';
 
 let screen = Dimensions.get('window');
+import Icon2 from 'react-native-vector-icons/FontAwesome';
+const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+const myButton = (
+    <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
+        Login with Facebook
+    </Icon.Button>
+);
+
+const customTextButton = (
+    <Icon.Button name="facebook" backgroundColor="#3b5998">
+        <Text style={{fontFamily: 'Arial', fontSize: 15}}>Login with Facebook</Text>
+    </Icon.Button>
+);
+
+function ExampleView(props) {
+    return (<Text>Lorem <Icon name="ios-book" color="#4F8EF7" /> Ipsum</Text>);
+}
+
+/*
 export const Tabs = createBottomTabNavigator({
     'Bookcase': {
         screen: Bookcase,
@@ -50,6 +70,8 @@ export const Tabs = createBottomTabNavigator({
     },
 });
 
+
+
 export const BookcaseStack = createStackNavigator({
     Bookcase: {
         screen: Bookcase,
@@ -67,8 +89,12 @@ export const BookcaseStack = createStackNavigator({
     },
 });
 
-export const createRootNavigator = () => {
-    return createStackNavigator(
+
+
+// export const createRootNavigator = () => {
+
+const AppNavigator = createStackNavigator(
+    // return createStackNavigator(
         {
             BookcaseStack: {
                 screen: BookcaseStack,
@@ -88,4 +114,104 @@ export const createRootNavigator = () => {
             mode: "modal"
         }
     );
-};
+// };
+
+export default createAppContainer(AppNavigator);
+
+*/
+
+import React from 'react';
+import { Button, Text, View } from 'react-native';
+// import { Ionicons } from '@expo/vector-icons';
+import {
+    createStackNavigator,
+    createBottomTabNavigator,
+    createAppContainer,
+    createStackNavigator,
+    createBottomTabNavigator,
+    createAppContainer } from 'react-navigation';
+
+class HomeScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Home!</Text>
+                <Button
+                    title="Go to Settings"
+                    onPress={() => this.props.navigation.navigate('Settings')}
+                />
+                <Button
+                    title="Go to Details"
+                    onPress={() => this.props.navigation.navigate('Details')}
+                />
+            </View>
+        );
+    }
+}
+
+class SettingsScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Settings!</Text>
+                <Button
+                    title="Go to Home"
+                    onPress={() => this.props.navigation.navigate('Home')}
+                />
+                <Button
+                    title="Go to Details"
+                    onPress={() => this.props.navigation.navigate('Details')}
+                />
+            </View>
+        );
+    }
+}
+
+class DetailsScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Details!</Text>
+            </View>
+        );
+    }
+}
+
+const HomeStack = createStackNavigator({
+    Home: { screen: HomeScreen },
+    Details: { screen: DetailsScreen },
+});
+
+const SettingsStack = createStackNavigator({
+    Settings: { screen: SettingsScreen },
+    Details: { screen: DetailsScreen },
+});
+
+export default createAppContainer(createBottomTabNavigator(
+    {
+        Home: { screen: HomeStack },
+        Settings: { screen: SettingsStack },
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, tintColor }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                if (routeName === 'Home') {
+                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+                } else if (routeName === 'Settings') {
+                    iconName = `ios-options${focused ? '' : '-outline'}`;
+                }
+
+                // You can return any component that you like here! We usually use an
+                // icon component from react-native-vector-icons
+                return <Ionicons name={iconName} size={25} color={tintColor} />;
+            },
+        }),
+        tabBarOptions: {
+            activeTintColor: 'tomato',
+            inactiveTintColor: 'gray',
+        },
+    }
+));
+
