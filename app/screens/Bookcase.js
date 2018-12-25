@@ -54,9 +54,11 @@ export default class Boookcase extends Component {
                     barStyle="light-content"
                 />
                 <FlatList
+                    // data={this.state.books}
                     data={this.state.books}
                     keyExtractor={this._keyExtractor}
                     renderItem={this._renderItem}
+                    // renderItem={({item}) => <Text>{item.key}</Text>}
                 />
             </View>
         );
